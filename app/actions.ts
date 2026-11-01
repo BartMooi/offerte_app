@@ -101,7 +101,7 @@ async function stuurInterneNotificatie(opts: {
   const regels = items.map(itemRegel);
   try {
     await getResend().emails.send({
-      from: "Bart Mooi <info@offerte-bartmooi.nl>",
+      from: "Bart Mooi <info@offerte.bartmooi.nl>",
       to: [INTERN_NOTIFICATIE_ADRES],
       replyTo: klant.email,
       subject: `Nieuwe offerte — ${klant.naam || klant.email} (${items.length} product${items.length !== 1 ? "en" : ""}, ${euro(totaalPrijs)})`,
@@ -174,9 +174,9 @@ export async function saveOffertes(
     const pdfBuffer = await generateOffertePdf(klant.email, { ...data, offerteId });
 
     const { error } = await getResend().emails.send({
-      from: "Bart Mooi <info@offerte-bartmooi.nl>",
+      from: "Bart Mooi <info@offerte.bartmooi.nl>",
       to: [klant.email],
-      replyTo: "info@offerte-bartmooi.nl",
+      replyTo: "info@bartmooi.nl",
       subject: `Uw offerte — BartMooi`,
       text: `Geachte ${klant.naam},\n\nHartelijk dank voor uw aanvraag. In de bijlage vindt u uw offerte met ${items.length} product(en).\n\nMet vriendelijke groet,\nBartMooi`,
       html: `
@@ -188,7 +188,7 @@ export async function saveOffertes(
             <p style="color: #555; margin: 0 0 32px;">Wij nemen zo spoedig mogelijk contact met u op om de offerte samen door te nemen.</p>
             <p style="color: #333; margin: 0;">Met vriendelijke groet,<br/>
             <strong style="color: #1066a3;">BartMooi B.V.</strong><br/>
-            <span style="color: #999; font-size: 12px;">info@offerte-bartmooi.nl · Den Haag</span></p>
+            <span style="color: #999; font-size: 12px;">info@bartmooi.nl · Den Haag</span></p>
           </div>
           <p style="font-size: 10px; color: #bbb; text-align: center; margin-top: 16px;">BARTMOOI B.V. · Burgemeester Hovylaan 157 · 2552 XB Den Haag</p>
         </div>`,
@@ -238,9 +238,9 @@ export async function saveOfferte(email: string, data: any) {
 
     // 4. E-mail verzenden
     const { data: emailData, error } = await getResend().emails.send({
-      from: "Bart Mooi <info@offerte-bartmooi.nl>",
+      from: "Bart Mooi <info@offerte.bartmooi.nl>",
       to: [email],
-      replyTo: "info@offerte-bartmooi.nl",
+      replyTo: "info@bartmooi.nl",
       subject: `Uw offerte voor ${data.product || data.kozijnNaam || data.deurNaam || "uw aanvraag"} — BartMooi`,
       text: `Geachte ${data.naam || ""},\n\nHartelijk dank voor uw aanvraag voor een ${data.product || data.kozijnNaam || data.deurNaam || "product"}.\nIn de bijlage vindt u uw offerte.\n\nMet vriendelijke groet,\nBartMooi`,
       html: `
@@ -255,7 +255,7 @@ export async function saveOfferte(email: string, data: any) {
 
             <p style="color: #333; margin: 0;">Met vriendelijke groet,<br/>
             <strong style="color: #1066a3;">BartMooi B.V.</strong><br/>
-            <span style="color: #999; font-size: 12px;">info@offerte-bartmooi.nl · Den Haag</span></p>
+            <span style="color: #999; font-size: 12px;">info@bartmooi.nl · Den Haag</span></p>
           </div>
 
           <p style="font-size: 10px; color: #bbb; text-align: center; margin-top: 16px;">BARTMOOI B.V. · Burgemeester Hovylaan 157 · 2552 XB Den Haag</p>

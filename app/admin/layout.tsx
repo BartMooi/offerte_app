@@ -4,6 +4,7 @@ import { AppSidebar } from "../components/AppSidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { SITE_URL } from "@/lib/site";
 
 function CustomSidebarTrigger() {
   const { toggleSidebar, openMobile, isMobile, open } = useSidebar();
@@ -38,7 +39,7 @@ export default function AdminLayout({
             </div>
           </div>
           <a
-            href="https://offerte-bartmooi.nl/"
+            href={`${SITE_URL}/`}
             target="_blank"
             className="bg-[#2cb1e1] hover:bg-[#1fa1cf] text-white px-5 py-2.5 rounded-xl font-bold text-sm">
             Bekijk App ↗

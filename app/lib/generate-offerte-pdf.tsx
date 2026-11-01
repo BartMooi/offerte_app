@@ -14,6 +14,7 @@ import path from "path";
 import fs from "fs";
 import { getSvgString } from "@/lib/renderSvgForPdf";
 import { svgToPng } from "./svg-to-png";
+import { SITE_URL } from "@/lib/site";
 
 Font.register({
   family: "Inter",
@@ -428,7 +429,7 @@ export async function generateOffertePdf(_email: string, data: OfferteData): Pro
             <Text style={styles.companyInfo}>
               Burgemeester Hovylaan 157{"\n"}
               2552 XB Den Haag{"\n"}
-              info@offerte-bartmooi.nl
+              info@bartmooi.nl
             </Text>
           </View>
         </View>
@@ -567,7 +568,7 @@ export async function generateOffertePdf(_email: string, data: OfferteData): Pro
             <View style={{ marginBottom: 16, padding: 10, borderWidth: 1, borderColor: LINE, borderRadius: 4 }}>
               <Text style={{ fontSize: 8.5, color: GREY, marginBottom: 4 }}>Liever digitaal akkoord geven?</Text>
               <Text style={{ fontSize: 9, color: DARK, fontFamily: "Inter", fontWeight: 700 }}>
-                {"https://offerte-bartmooi.nl/accepteer/" + data.offerteId}
+                {`${SITE_URL}/accepteer/${data.offerteId}`}
               </Text>
             </View>
           )}
@@ -595,7 +596,7 @@ export async function generateOffertePdf(_email: string, data: OfferteData): Pro
         {/* ── Footer ── */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>BartMooi B.V. · KvK 12345678 · BTW NL123456789B01</Text>
-          <Text style={styles.footerText}>info@offerte-bartmooi.nl · bartmooi.nl</Text>
+          <Text style={styles.footerText}>info@bartmooi.nl · bartmooi.nl</Text>
         </View>
 
       </Page>

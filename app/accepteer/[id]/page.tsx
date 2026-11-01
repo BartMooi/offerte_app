@@ -101,7 +101,7 @@ export default function AccepteerOfferte() {
               <p className="font-semibold text-slate-600">BartMooi B.V.</p>
               <p>Burgemeester Hovylaan 157</p>
               <p>2552 XB Den Haag</p>
-              <p>info@offerte-bartmooi.nl</p>
+              <p>info@bartmooi.nl</p>
             </div>
           </div>
 
@@ -197,7 +197,7 @@ export default function AccepteerOfferte() {
           {/* Voettekst */}
           <div className="px-10 py-5 bg-slate-50 border-t border-slate-100">
             <p className="text-xs text-slate-400 text-center">
-              BartMooi B.V. · KvK Den Haag · info@offerte-bartmooi.nl · Referentie: {offerteId.slice(0, 8)}...
+              BartMooi B.V. · KvK Den Haag · info@bartmooi.nl · Referentie: {offerteId.slice(0, 8)}...
             </p>
           </div>
         </div>
