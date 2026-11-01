@@ -144,7 +144,7 @@ export default function AluKozijnConfiguratorDetail() {
   return (
     <div className="w-full min-h-screen bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-6 md:py-10">
-        <Link href="/aluminium/kozijnen" className="text-slate-400 text-[11px] uppercase tracking-wider hover:text-[#1066a3]">
+        <Link href="/aluminium/kozijnen" className="text-slate-400 text-[11px] uppercase tracking-wider hover:text-brand-text">
           ← Overzicht
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-6">
@@ -246,7 +246,7 @@ export default function AluKozijnConfiguratorDetail() {
               <div className="px-5 pb-5 pt-2">
                 <button
                   onClick={handleAdd}
-                  className="w-full bg-[#1066a3] text-white py-4 rounded-xl font-bold text-sm tracking-wide hover:bg-[#0d5491] transition-colors">
+                  className="w-full bg-brand text-white py-4 rounded-xl font-bold text-sm tracking-wide hover:bg-brand-dark transition-colors">
                   Toevoegen aan offerte
                 </button>
                 <p className="text-center text-[11px] text-slate-400 mt-2">Ontvang uw subsidie-indicatie bij de offerte</p>

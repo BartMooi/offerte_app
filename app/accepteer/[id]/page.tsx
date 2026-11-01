@@ -74,7 +74,7 @@ export default function AccepteerOfferte() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center">
         <p className="text-slate-500 mb-4">Deze offerte-link is niet geldig of verlopen.</p>
-        <a href="/" className="text-[#1066a3] text-sm font-semibold hover:underline">← Terug naar BartMooi</a>
+        <a href="/" className="text-brand-text text-sm font-semibold hover:underline">← Terug naar BartMooi</a>
       </div>
     </div>
   );
@@ -111,7 +111,7 @@ export default function AccepteerOfferte() {
             <p className="text-sm text-slate-700 mb-1">Geachte <strong>{offerte?.naam || "klant"}</strong>,</p>
             {offerte?.telefoon && (
               <p className="text-xs text-slate-400 mb-2">
-                <a href={`tel:${offerte.telefoon}`} className="hover:text-[#1066a3]">📞 {offerte.telefoon}</a>
+                <a href={`tel:${offerte.telefoon}`} className="hover:text-brand-text">📞 {offerte.telefoon}</a>
                 {offerte?.woonplaats ? <span> · {offerte.woonplaats}</span> : null}
               </p>
             )}
@@ -142,7 +142,7 @@ export default function AccepteerOfferte() {
               )))}
               <div className="flex px-5 py-3 text-sm bg-slate-50">
                 <span className="w-40 text-slate-400 flex-shrink-0">Prijsindicatie</span>
-                <span className="text-[#1066a3] font-bold">
+                <span className="text-brand-text font-bold">
                   € {offerte?.prijs?.toLocaleString("nl-NL", { minimumFractionDigits: 2 })} excl. btw
                 </span>
               </div>
@@ -170,11 +170,11 @@ export default function AccepteerOfferte() {
               <div className="mb-5">
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Naam</label>
                 <input value={naam} onChange={e => setNaam(e.target.value)} placeholder="Voor- en achternaam"
-                  className="w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                  className="w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               </div>
 
               <label className="flex items-start gap-3 cursor-pointer mb-6 select-none">
-                <div className={`mt-0.5 w-5 h-5 flex-shrink-0 rounded border-2 flex items-center justify-center transition-colors ${akkoord ? "bg-[#1066a3] border-[#1066a3]" : "border-slate-300 bg-white"}`}
+                <div className={`mt-0.5 w-5 h-5 flex-shrink-0 rounded border-2 flex items-center justify-center transition-colors ${akkoord ? "bg-brand border-brand" : "border-slate-300 bg-white"}`}
                   onClick={() => setAkkoord(v => !v)}>
                   {akkoord && <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><polyline points="2 6 5 9 10 3" /></svg>}
                 </div>
@@ -188,7 +188,7 @@ export default function AccepteerOfferte() {
               )}
 
               <button disabled={!akkoord || !naam.trim() || status === "bezig"} onClick={handleAccept}
-                className="w-full bg-[#1066a3] text-white font-bold py-3 rounded-xl hover:bg-[#0d5491] transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                className="w-full bg-brand text-white font-bold py-3 rounded-xl hover:bg-brand-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
                 {status === "bezig" ? "Verwerken..." : "Offerte accepteren"}
               </button>
             </div>

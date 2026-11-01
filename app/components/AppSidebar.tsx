@@ -57,7 +57,7 @@ export function AppSidebar() {
       className="border-none"
       style={
         {
-          background: "linear-gradient(to bottom, #1066a3, #2cb1e1)",
+          background: "linear-gradient(to bottom, #1E5079, #2cb1e1)",
           "--sidebar-foreground": "#ffffff",
           "--sidebar-accent": "rgba(0,0,0,0.1)",
           "--sidebar-accent-foreground": "#ffffff",

@@ -78,7 +78,7 @@ export default function HarmonicadeurPrijzenBeheer() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="bg-[#1066a3] text-white px-6 py-2 rounded-xl font-bold hover:bg-[#0d5486] transition-all">
+          className="bg-brand text-white px-6 py-2 rounded-xl font-bold hover:bg-brand-dark transition-all">
           {saving ? "Opslaan..." : "Opslaan"}
         </button>
       </div>
@@ -90,7 +90,7 @@ export default function HarmonicadeurPrijzenBeheer() {
             onClick={() => setMateriaal(m)}
             className={`px-6 py-2 text-sm font-bold rounded-lg transition-colors capitalize ${
               materiaal === m
-                ? "bg-[#1066a3] text-white shadow-md"
+                ? "bg-brand text-white shadow-md"
                 : "text-slate-500 hover:text-slate-800"
             }`}>
             {m}

@@ -180,7 +180,7 @@ export default function HarmonicadeurConfiguratorDetail() {
       <div className="max-w-[1200px] mx-auto px-6 py-10">
         <Link
           href="/harmonicadeur"
-          className="text-[11px] uppercase tracking-wider text-slate-400 hover:text-[#1066a3]">
+          className="text-[11px] uppercase tracking-wider text-slate-400 hover:text-brand-text">
           ← Overzicht
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-6">
@@ -326,7 +326,7 @@ export default function HarmonicadeurConfiguratorDetail() {
               <button
                 type="button"
                 onClick={handleAdd}
-                className="w-full bg-[#1066a3] text-white py-4 rounded-lg font-bold uppercase text-[11px] tracking-widest hover:bg-[#0a4d7d] transition-colors">
+                className="w-full bg-brand text-white py-4 rounded-lg font-bold uppercase text-[11px] tracking-widest hover:bg-[#0a4d7d] transition-colors">
                 Toevoegen aan offerte
               </button>
               <p className="text-center text-[11px] text-slate-400">

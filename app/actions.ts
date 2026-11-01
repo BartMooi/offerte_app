@@ -117,7 +117,7 @@ async function stuurInterneNotificatie(opts: {
         `Offerte-ID: ${offerteId}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">
-          <h2 style="color: #1066a3; margin: 0 0 16px;">Nieuwe offerte aangevraagd</h2>
+          <h2 style="color: #10649E; margin: 0 0 16px;">Nieuwe offerte aangevraagd</h2>
           <table style="border-collapse: collapse; font-size: 14px; margin-bottom: 20px;">
             <tr><td style="padding: 2px 12px 2px 0; color: #777;">Naam</td><td><strong>${klant.naam || "-"}</strong></td></tr>
             <tr><td style="padding: 2px 12px 2px 0; color: #777;">E-mail</td><td>${klant.email}</td></tr>
@@ -187,7 +187,7 @@ export async function saveOffertes(
             <p style="color: #555; margin: 0 0 32px;">In de <strong>bijlage</strong> vindt u uw persoonlijke offerte met alle specificaties, technische tekeningen, de betalingsvoorwaarden en onze garanties.</p>
             <p style="color: #555; margin: 0 0 32px;">Wij nemen zo spoedig mogelijk contact met u op om de offerte samen door te nemen.</p>
             <p style="color: #333; margin: 0;">Met vriendelijke groet,<br/>
-            <strong style="color: #1066a3;">BartMooi B.V.</strong><br/>
+            <strong style="color: #10649E;">BartMooi B.V.</strong><br/>
             <span style="color: #999; font-size: 12px;">info@bartmooi.nl · Den Haag</span></p>
           </div>
           <p style="font-size: 10px; color: #bbb; text-align: center; margin-top: 16px;">BARTMOOI B.V. · Burgemeester Hovylaan 157 · 2552 XB Den Haag</p>
@@ -254,7 +254,7 @@ export async function saveOfferte(email: string, data: any) {
             <p style="color: #555; margin: 0 0 32px;">Wij nemen zo spoedig mogelijk contact met u op om de offerte samen door te nemen.</p>
 
             <p style="color: #333; margin: 0;">Met vriendelijke groet,<br/>
-            <strong style="color: #1066a3;">BartMooi B.V.</strong><br/>
+            <strong style="color: #10649E;">BartMooi B.V.</strong><br/>
             <span style="color: #999; font-size: 12px;">info@bartmooi.nl · Den Haag</span></p>
           </div>
 

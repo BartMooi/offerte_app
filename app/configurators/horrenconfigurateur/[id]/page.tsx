@@ -56,7 +56,7 @@ export default function HorConfigurator() {
 
   return (
     <div className="max-w-[1200px] mx-auto p-4 md:p-12 lg:p-16 font-sans bg-white min-h-screen">
-      <Link href="/horren" className="text-sm text-slate-400 hover:text-[#1066a3] mb-8 inline-block">
+      <Link href="/horren" className="text-sm text-slate-400 hover:text-brand-text mb-8 inline-block">
         ← Terug naar horren
       </Link>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-6">
@@ -73,13 +73,13 @@ export default function HorConfigurator() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">Breedte (mm)</label>
               <NumberInput min={300} max={2500} value={breedte}
                 onChange={setBreedte}
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
             </div>
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">Hoogte (mm)</label>
               <NumberInput min={300} max={3000} value={hoogte}
                 onChange={setHoogte}
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
             </div>
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">Kleur</label>
@@ -87,7 +87,7 @@ export default function HorConfigurator() {
                 {KLEUREN.map(k => (
                   <button key={k} type="button" onClick={() => setKleur(k)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all capitalize ${
-                      kleur === k ? "bg-[#1066a3] text-white border-[#1066a3]" : "border-slate-200 text-slate-600"
+                      kleur === k ? "bg-brand text-white border-brand" : "border-slate-200 text-slate-600"
                     }`}>{k}</button>
                 ))}
               </div>
@@ -96,19 +96,19 @@ export default function HorConfigurator() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">Aantal</label>
               <NumberInput min={1} max={50} value={aantal}
                 onChange={setAantal}
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
             </div>
             <div className="bg-[#f4f7f9] rounded-lg p-4">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-slate-600">Prijsindicatie</span>
-                <span className="text-xl font-bold text-[#1066a3]">
+                <span className="text-xl font-bold text-brand-text">
                   € {prijs.toLocaleString("nl-NL", { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-1">Excl. btw · indicatie</p>
             </div>
             <button type="button" onClick={handleAdd}
-              className="w-full bg-[#1066a3] text-white font-bold py-3 rounded-xl hover:bg-[#0d5491] transition-colors uppercase text-[11px] tracking-widest">
+              className="w-full bg-brand text-white font-bold py-3 rounded-xl hover:bg-brand-dark transition-colors uppercase text-[11px] tracking-widest">
               Toevoegen aan offerte
             </button>
             <p className="text-center text-[11px] text-slate-400">Ontvang uw subsidie-indicatie bij de offerte</p>

@@ -55,7 +55,7 @@ export default function OffertesPagina() {
                     <td className="py-4 px-6">
                       <p className="font-semibold text-slate-800">{d?.naam || "—"}</p>
                       <p className="text-xs text-slate-400">{o.email}</p>
-                      {d?.telefoon && <a href={`tel:${d.telefoon}`} className="text-xs text-[#1066a3] hover:underline">{d.telefoon}</a>}
+                      {d?.telefoon && <a href={`tel:${d.telefoon}`} className="text-xs text-brand-text hover:underline">{d.telefoon}</a>}
                     </td>
                     <td className="py-4 px-6 text-slate-600">{d?.product || d?.kozijnNaam || d?.deurNaam || "—"}</td>
                     <td className="py-4 px-6 font-semibold text-slate-800">
@@ -71,15 +71,15 @@ export default function OffertesPagina() {
                           Geaccepteerd
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 bg-blue-50 text-[#1066a3] text-xs font-semibold px-2.5 py-1 rounded-full">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#1066a3] inline-block" />
+                        <span className="inline-flex items-center gap-1.5 bg-blue-50 text-brand-text text-xs font-semibold px-2.5 py-1 rounded-full">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand inline-block" />
                           Verzonden
                         </span>
                       )}
                     </td>
                     <td className="py-4 px-6">
                       <div className="flex items-center gap-3">
-                        <Link href={`/admin/offertes/${o.id}`} className="text-[#1066a3] text-sm font-semibold hover:underline">
+                        <Link href={`/admin/offertes/${o.id}`} className="text-brand-text text-sm font-semibold hover:underline">
                           Bekijken
                         </Link>
                         <button

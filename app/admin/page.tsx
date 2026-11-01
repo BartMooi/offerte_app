@@ -24,7 +24,7 @@ export default async function AdminDashboard() {
       <div>
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-base font-bold text-slate-800">Recente offertes</h2>
-          <Link href="/admin/offertes" className="text-sm text-[#1066a3] font-semibold hover:underline">
+          <Link href="/admin/offertes" className="text-sm text-brand-text font-semibold hover:underline">
             Alle offertes →
           </Link>
         </div>
@@ -61,8 +61,8 @@ export default async function AdminDashboard() {
                           Geaccepteerd
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 bg-blue-50 text-[#1066a3] text-xs font-semibold px-2.5 py-1 rounded-full">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#1066a3] inline-block" />
+                        <span className="inline-flex items-center gap-1.5 bg-blue-50 text-brand-text text-xs font-semibold px-2.5 py-1 rounded-full">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand inline-block" />
                           Verzonden
                         </span>
                       )}
@@ -87,7 +87,7 @@ export default async function AdminDashboard() {
 
 function StatCard({ label, value, accent }: { label: string; value: string | number; accent?: boolean }) {
   return (
-    <div className={`rounded-2xl border p-6 shadow-sm ${accent ? "bg-[#1066a3] border-[#1066a3]" : "bg-white border-slate-100"}`}>
+    <div className={`rounded-2xl border p-6 shadow-sm ${accent ? "bg-brand border-brand" : "bg-white border-slate-100"}`}>
       <p className={`text-xs font-bold uppercase tracking-wider mb-2 ${accent ? "text-blue-200" : "text-slate-400"}`}>
         {label}
       </p>

@@ -66,7 +66,7 @@ function DropdownItem({ label, items }: { label: string; items: { label: string;
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 hover:text-[#1066a3] transition-colors">
+        className="flex items-center gap-1 hover:text-brand-text transition-colors">
         {label}
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d={open ? "M18 15l-6-6-6 6" : "M6 9l6 6 6-6"} />
@@ -80,7 +80,7 @@ function DropdownItem({ label, items }: { label: string; items: { label: string;
               key={item.label}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block px-4 py-2.5 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#1066a3] transition-colors">
+              className="block px-4 py-2.5 text-sm text-slate-600 hover:bg-slate-50 hover:text-brand-text transition-colors">
               {item.label}
             </Link>
           ))}
@@ -124,7 +124,7 @@ const Navbar = () => {
           {isOfferte && (
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-[#1066a3]">
+              className="md:hidden p-2 text-brand-text">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 {isOpen ? <path d="M18 6L6 18M6 6l12 12" /> : <path d="M3 12h18M3 6h18M3 18h18" />}
               </svg>
@@ -141,7 +141,7 @@ const Navbar = () => {
               <div key={item.label}>
                 <button
                   onClick={() => setOpenMobile(openMobile === item.label ? null : item.label)}
-                  className="w-full flex justify-between items-center py-3 hover:text-[#1066a3] transition-colors">
+                  className="w-full flex justify-between items-center py-3 hover:text-brand-text transition-colors">
                   {item.label}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d={openMobile === item.label ? "M18 15l-6-6-6 6" : "M6 9l6 6 6-6"} />
@@ -154,7 +154,7 @@ const Navbar = () => {
                         key={sub.label}
                         href={sub.href}
                         onClick={() => { setIsOpen(false); setOpenMobile(null); }}
-                        className="py-2 text-sm font-medium text-slate-500 hover:text-[#1066a3] normal-case">
+                        className="py-2 text-sm font-medium text-slate-500 hover:text-brand-text normal-case">
                         {sub.label}
                       </Link>
                     ))}

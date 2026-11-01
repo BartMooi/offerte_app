@@ -15,7 +15,7 @@ function FaqBlok({ items }: { items: { q: string; a: string }[] }) {
             <button onClick={() => setOpen(open === i ? null : i)}
               className="w-full flex justify-between items-center px-6 py-4 text-left hover:bg-slate-50 transition-colors">
               <span className="text-sm font-semibold text-[#1a1a1a] pr-4">{item.q}</span>
-              <span className="text-[#1066a3] font-bold text-lg shrink-0">{open === i ? "−" : "+"}</span>
+              <span className="text-brand-text font-bold text-lg shrink-0">{open === i ? "−" : "+"}</span>
             </button>
             {open === i && <div className="px-6 pb-5 text-sm text-slate-600 leading-relaxed bg-slate-50">{item.a}</div>}
           </div>
@@ -60,16 +60,16 @@ const kozijnen = [
   { id: 25, v: 4, slug: "draai-kiep-draai-kiep-draai-kiep-draai-kiep-kozijn", name: "4x Draai kiep", best: true, components: [<GlassDK key="1" x={0} />, <GlassDK key="2" x={100} />, <GlassDK key="3" x={200} />, <GlassDK key="4" x={300} />] },
 ];
 
-const COLORS = { primary: "#1066a3", textDark: "#2d3748" };
+const COLORS = { primary: "#1E5079", textDark: "#2d3748" };
 
 export default function AluKozijnenOverzicht() {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
     <div className="max-w-[1200px] mx-auto p-8 md:p-16 font-sans bg-white min-h-screen">
-      <div className="mb-12 border-l-4 border-[#1066a3] pl-6">
+      <div className="mb-12 border-l-4 border-brand pl-6">
         <h1 className="text-4xl font-bold text-[#1a1a1a] mb-3 tracking-tight">Aluminium kozijnen</h1>
-        <p className="text-[#1066a3] font-medium text-xl uppercase tracking-tighter">Kies uw gewenste indeling</p>
+        <p className="text-brand-text font-medium text-xl uppercase tracking-tighter">Kies uw gewenste indeling</p>
       </div>
 
       <div className="flex justify-start mb-12">
@@ -78,7 +78,7 @@ export default function AluKozijnenOverzicht() {
             <button
               key={n}
               onClick={() => setActiveTab(n)}
-              className={`px-8 py-3 text-sm font-bold rounded-lg transition-colors ${activeTab === n ? "bg-[#1066a3] text-white shadow-md" : "text-[#666666] hover:text-[#1066a3]"}`}>
+              className={`px-8 py-3 text-sm font-bold rounded-lg transition-colors ${activeTab === n ? "bg-brand text-white shadow-md" : "text-[#666666] hover:text-brand-text"}`}>
               {n} {n === 1 ? "vak" : "vakken"}
             </button>
           ))}
@@ -90,7 +90,7 @@ export default function AluKozijnenOverzicht() {
           <Link href={`/aluminium/kozijnconfigurator/${item.slug}`} key={item.id} className="group">
             <div className="relative h-[280px] bg-white border border-slate-100 rounded-2xl flex items-center justify-center p-8 shadow-sm">
               {item.best && (
-                <div className="absolute top-4 left-4 bg-[#1066a3] text-white text-[9px] font-black px-3 py-1.5 rounded-full tracking-widest z-10 uppercase">
+                <div className="absolute top-4 left-4 bg-brand text-white text-[9px] font-black px-3 py-1.5 rounded-full tracking-widest z-10 uppercase">
                   POPULAIR
                 </div>
               )}
@@ -106,10 +106,10 @@ export default function AluKozijnenOverzicht() {
                 </div>
               </div>
             </div>
-            <h3 className="mt-6 text-center font-bold text-[#1a1a1a] text-base group-hover:text-[#1066a3] transition-colors uppercase tracking-tight">
+            <h3 className="mt-6 text-center font-bold text-[#1a1a1a] text-base group-hover:text-brand-text transition-colors uppercase tracking-tight">
               {item.name}
             </h3>
-            <div className="mt-2 text-center text-[10px] font-bold text-[#1066a3] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">
+            <div className="mt-2 text-center text-[10px] font-bold text-brand-text opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">
               Bekijk configurator →
             </div>
           </Link>
@@ -134,7 +134,7 @@ export default function AluKozijnenOverzicht() {
                 { icon: <Sparkles size={20} />, title: "Onderhoudsvriendelijk & Stijlvol", text: "Aluminium oogt modern en strak. Het materiaal is kleurvast, rot niet en trekt geen vuil aan. Even afnemen met een vochtige doek is voldoende om de kozijnen in topconditie te houden." },
               ].map((b, i) => (
                 <div key={i} className="flex gap-4 bg-slate-50 rounded-xl p-5 border border-slate-100">
-                  <div className="text-[#1066a3] shrink-0 mt-0.5">{b.icon}</div>
+                  <div className="text-brand-text shrink-0 mt-0.5">{b.icon}</div>
                   <div>
                     <p className="font-semibold text-[#1a1a1a] text-sm mb-1">{b.title}</p>
                     <p className="text-slate-500 text-sm leading-relaxed">{b.text}</p>

@@ -15,7 +15,7 @@ export default function DashboardLayout({
 
   return (
     <div className="flex min-h-screen bg-[#f8fafc]">
-      <aside className="w-64 bg-gradient-to-b from-[#1066a3] to-[#2cb1e1] text-white flex flex-col shrink-0 shadow-xl">
+      <aside className="w-64 bg-gradient-to-b from-brand to-[#2cb1e1] text-white flex flex-col shrink-0 shadow-xl">
         {/* Logo Sectie */}
         <div className="p-6 bg-white border-b border-gray-100 flex justify-center items-center h-24">
           <img

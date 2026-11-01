@@ -20,7 +20,7 @@ export function FormField({ label, value, children, defaultOpen = false }: Props
             <span className="text-xs text-slate-400 truncate max-w-[140px]">{value}</span>
           )}
           <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
-            open ? "border-[#1066a3] text-[#1066a3]" : "border-slate-200 text-slate-400"
+            open ? "border-brand text-brand-text" : "border-slate-200 text-slate-400"
           }`}>
             <span className="text-sm font-bold leading-none">{open ? "−" : "+"}</span>
           </div>

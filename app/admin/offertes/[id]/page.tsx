@@ -32,7 +32,7 @@ export default async function OfferteDetailPagina({
       <div className="max-w-3xl mx-auto p-6 space-y-6">
         <Link
           href="/admin/offertes"
-          className="text-sm text-slate-400 hover:text-[#1066a3]">
+          className="text-sm text-slate-400 hover:text-brand-text">
           ← Terug naar overzicht
         </Link>
 

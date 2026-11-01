@@ -28,7 +28,7 @@ export function CenterToast() {
         className="bg-white rounded-2xl shadow-2xl px-10 py-7 flex flex-col items-center gap-3 pointer-events-auto animate-in fade-in zoom-in-95 duration-200"
         style={{ boxShadow: "0 25px 80px rgba(0,0,0,0.18)" }}>
         {toast.type === "success" ? (
-          <div className="w-12 h-12 rounded-full bg-[#1066a3] flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-brand flex items-center justify-center">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>

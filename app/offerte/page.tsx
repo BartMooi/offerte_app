@@ -53,7 +53,7 @@ export default function OffertePagina() {
         </div>
         <h1 className="text-2xl font-bold text-[#1a1a1a] mb-3">Offerte verstuurd!</h1>
         <p className="text-slate-500 mb-8">Bedankt {naam}, u ontvangt uw offerte op <strong>{email}</strong>.</p>
-        <Link href="/" className="text-[#1066a3] font-semibold hover:underline">← Terug naar BartMooi</Link>
+        <Link href="/" className="text-brand-text font-semibold hover:underline">← Terug naar BartMooi</Link>
       </div>
     </div>
   );
@@ -63,7 +63,7 @@ export default function OffertePagina() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center">
         <p className="text-slate-500 mb-4">Uw offerte is nog leeg.</p>
-        <Link href="/kozijnen" className="text-[#1066a3] font-semibold hover:underline">Begin met configureren →</Link>
+        <Link href="/kozijnen" className="text-brand-text font-semibold hover:underline">Begin met configureren →</Link>
       </div>
     </div>
   );
@@ -97,14 +97,14 @@ export default function OffertePagina() {
                   {item.specs.kleur && <span>{clean(item.specs.kleur)}</span>}
                   {item.specs.aantal && <span>{item.specs.aantal} stuks</span>}
                 </div>
-                <p className="text-[#1066a3] font-bold mt-3">
+                <p className="text-brand-text font-bold mt-3">
                   € {item.prijs.toLocaleString("nl-NL", { minimumFractionDigits: 2 })}
                 </p>
               </div>
             </div>
           ))}
 
-          <Link href="/kozijnen" className="block text-center text-sm text-[#1066a3] font-semibold hover:underline py-3">
+          <Link href="/kozijnen" className="block text-center text-sm text-brand-text font-semibold hover:underline py-3">
             + Verder winkelen
           </Link>
         </div>
@@ -119,17 +119,17 @@ export default function OffertePagina() {
 
             <div className="space-y-2">
               <input value={naam} onChange={e => setNaam(e.target.value)} placeholder="Naam"
-                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               <input value={woonplaats} onChange={e => setWoonplaats(e.target.value)} placeholder="Woonplaats"
-                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               <input type="tel" value={telefoon} onChange={e => setTelefoon(e.target.value)} placeholder="Telefoonnummer"
-                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="E-mailadres"
-                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
             </div>
 
             <button disabled={bezig} onClick={handleSubmit}
-              className="w-full bg-[#1066a3] text-white font-bold py-3.5 rounded-xl hover:bg-[#0d5491] transition-colors disabled:opacity-50">
+              className="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-brand-dark transition-colors disabled:opacity-50">
               {bezig ? "Verzenden..." : "Offerte aanvragen"}
             </button>
             <p className="text-xs text-slate-400 text-center">Vrijblijvend · u ontvangt de offerte per e-mail</p>

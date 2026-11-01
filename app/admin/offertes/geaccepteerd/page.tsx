@@ -39,7 +39,7 @@ export default async function GeaccepteerdeOffertes() {
                     <p className="text-xs text-slate-400">{o.email}</p>
                   </td>
                   <td className="py-4 px-6 text-slate-600">{d.product || d.kozijnNaam || d.deurNaam || "—"}</td>
-                  <td className="py-4 px-6 font-semibold text-[#1066a3]">
+                  <td className="py-4 px-6 font-semibold text-brand-text">
                     {d.prijs ? `€ ${Number(d.prijs).toLocaleString("nl-NL", { minimumFractionDigits: 2 })}` : "—"}
                   </td>
                   <td className="py-4 px-6 text-xs text-slate-400">
@@ -52,7 +52,7 @@ export default async function GeaccepteerdeOffertes() {
                     </span>
                   </td>
                   <td className="py-4 px-6">
-                    <Link href={`/admin/offertes/${o.id}`} className="text-[#1066a3] text-sm font-semibold hover:underline">
+                    <Link href={`/admin/offertes/${o.id}`} className="text-brand-text text-sm font-semibold hover:underline">
                       Bekijken
                     </Link>
                   </td>

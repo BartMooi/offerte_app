@@ -53,7 +53,7 @@ export function CartAddedModal({ open, onClose, product, breedte, hoogte, aantal
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mt-8 mb-8 overflow-hidden">
 
         {/* Banner */}
-        <div className="bg-[#1066a3] px-6 py-4 flex items-center justify-between">
+        <div className="bg-brand px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3 text-white font-bold">
             <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -69,7 +69,7 @@ export function CartAddedModal({ open, onClose, product, breedte, hoogte, aantal
           <div className="p-8 text-center">
             <p className="text-slate-700 mb-2">Bedankt <strong>{naam}</strong>!</p>
             <p className="text-slate-500 text-sm">U ontvangt uw offerte met subsidie-indicatie op <strong>{email}</strong>.</p>
-            <Link href="/" onClick={onClose} className="inline-block mt-6 text-[#1066a3] font-semibold hover:underline">← Terug naar BartMooi</Link>
+            <Link href="/" onClick={onClose} className="inline-block mt-6 text-brand-text font-semibold hover:underline">← Terug naar BartMooi</Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6">
@@ -93,7 +93,7 @@ export function CartAddedModal({ open, onClose, product, breedte, hoogte, aantal
               <div className="flex flex-wrap gap-2">
                 {CATEGORIEEN.map((c) => (
                   <Link key={c.href} href={c.href} onClick={onClose}
-                    className="text-xs font-semibold text-[#1066a3] border border-slate-200 rounded-full px-3 py-1.5 hover:bg-slate-50 transition-colors">
+                    className="text-xs font-semibold text-brand-text border border-slate-200 rounded-full px-3 py-1.5 hover:bg-slate-50 transition-colors">
                     + {c.label}
                   </Link>
                 ))}
@@ -107,14 +107,14 @@ export function CartAddedModal({ open, onClose, product, breedte, hoogte, aantal
                 <span className="text-xs font-semibold text-green-800">Bij ons is montage in de prijs inbegrepen</span>
               </div>
               <input value={naam} onChange={e => setNaam(e.target.value)} placeholder="Naam"
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               <input value={woonplaats} onChange={e => setWoonplaats(e.target.value)} placeholder="Woonplaats"
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="E-mailadres"
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1066a3]" />
+                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
 
               <button onClick={handleSubmit} disabled={bezig}
-                className="bg-[#1066a3] hover:bg-[#0d5491] text-white font-bold text-center py-2.5 rounded-lg transition-colors disabled:opacity-50 mt-1 text-sm">
+                className="bg-brand hover:bg-brand-dark text-white font-bold text-center py-2.5 rounded-lg transition-colors disabled:opacity-50 mt-1 text-sm">
                 {bezig ? "Verzenden..." : `Offerte aanvragen${cartCount > 1 ? ` (${cartCount})` : ""}`}
               </button>
               <p className="text-[11px] text-slate-400 text-center">Vrijblijvend · u ontvangt de offerte per e-mail</p>

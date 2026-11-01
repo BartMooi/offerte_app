@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testpagina – BartMooi hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Testpagina: nagemaakte bartmooi.nl hero om de offerte-knop te testen */
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: "Overpass", sans-serif; background: #F5F6F7; color: #1F1F1F; }
+    header { max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; }
+    header img { height: 44px; width: auto; }
+    .hero { max-width: 1240px; margin: 0 auto; padding: 32px 24px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    h1 { font-size: 3.2rem; font-weight: 700; letter-spacing: -1.8px; line-height: 1.15; }
+    h1 span { color: #2B5C8F; }
+    p { margin-top: 28px; font-size: 1.15rem; line-height: 1.6; color: #7A7A7A; max-width: 520px; }
+    .btn { display: inline-block; margin-top: 40px; background: #1E5079; color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; padding: 20px 48px; transition: background .2s; }
+    .btn:hover { background: #13334D; }
+    .foto { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 50% 50% 0 0 / 32% 32% 0 0; display: block; }
+    @media (max-width: 860px) {
+      header img { height: 36px; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding: 16px 16px 48px; }
+      h1 { font-size: 2.2rem; letter-spacing: -1px; }
+      p { margin-top: 20px; font-size: 1rem; }
+      .btn { display: block; text-align: center; margin-top: 28px; padding: 18px 20px; }
+      .foto { aspect-ratio: 1 / 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/bartmooi-logo-1.png" alt="BartMooi" />
+  </header>
+  <section class="hero">
+    <div>
+      <h1>Kozijnen en deuren op maat. <span>Vakmanschap dat het verschil maakt voor jouw woning.</span></h1>
+      <p>Wij zijn gespecialiseerd in de levering en montage van energiezuinige kozijnen, deuren en zonweringssystemen. Poolse precisie gecombineerd met Duitse kwaliteit. Met jarenlange ervaring op de Nederlandse markt.</p>
+      <a class="btn" href="/">Offerte in 3 minuten</a>
+    </div>
+    <img class="foto" src="/test/monteur.jpg" alt="Monteur aan het werk" />
+  </section>
+</body>
+</html>

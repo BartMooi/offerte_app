@@ -31,12 +31,12 @@ export default function SchuifpuiOverview() {
   return (
     <div className="max-w-[1200px] mx-auto p-4 md:p-12 lg:p-16 font-sans bg-white min-h-screen">
       {/* Header Section - Mobile Optimized */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 border-l-4 border-[#1066a3] pl-4 md:pl-6">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 border-l-4 border-brand pl-4 md:pl-6">
         <div className="mb-6 lg:mb-0">
           <h1 className="text-2xl md:text-4xl font-bold text-[#1a1a1a] mb-1 md:mb-3 tracking-tight">
             Kunststof schuifpuien
           </h1>
-          <p className="text-[#1066a3] font-medium text-sm md:text-xl uppercase tracking-tighter">
+          <p className="text-brand-text font-medium text-sm md:text-xl uppercase tracking-tighter">
             Kies uw gewenste indeling
           </p>
         </div>
@@ -52,8 +52,8 @@ export default function SchuifpuiOverview() {
                 onClick={() => setActiveType(type)}
                 className={`flex-1 lg:flex-none px-6 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-bold rounded-lg transition-all ${
                   activeType === type
-                    ? "bg-[#1066a3] text-white shadow-md"
-                    : "text-[#666666] hover:text-[#1066a3]"
+                    ? "bg-brand text-white shadow-md"
+                    : "text-[#666666] hover:text-brand-text"
                 }`}>
                 {type}
               </button>
@@ -73,7 +73,7 @@ export default function SchuifpuiOverview() {
               className="group flex flex-col h-full">
               <div className="relative aspect-[4/3] bg-white border border-slate-100 rounded-2xl flex items-center justify-center p-6 md:p-8 shadow-sm group-hover:shadow-md transition-shadow overflow-hidden">
                 {item.best && (
-                  <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-[#1066a3] text-white text-[8px] md:text-[9px] font-black px-2 py-1 md:px-3 md:py-1.5 rounded-full tracking-widest z-10 uppercase">
+                  <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-brand text-white text-[8px] md:text-[9px] font-black px-2 py-1 md:px-3 md:py-1.5 rounded-full tracking-widest z-10 uppercase">
                     POPULAIR
                   </div>
                 )}
@@ -89,10 +89,10 @@ export default function SchuifpuiOverview() {
               </div>
 
               <div className="mt-4 md:mt-6 text-center">
-                <h3 className="font-bold text-[#1a1a1a] text-sm md:text-base group-hover:text-[#1066a3] transition-colors uppercase tracking-tight leading-tight">
+                <h3 className="font-bold text-[#1a1a1a] text-sm md:text-base group-hover:text-brand-text transition-colors uppercase tracking-tight leading-tight">
                   {item.name}
                 </h3>
-                <div className="mt-1 md:mt-2 text-[10px] font-bold text-[#1066a3] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity uppercase tracking-widest">
+                <div className="mt-1 md:mt-2 text-[10px] font-bold text-brand-text opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity uppercase tracking-widest">
                   Stel nu samen →
                 </div>
               </div>

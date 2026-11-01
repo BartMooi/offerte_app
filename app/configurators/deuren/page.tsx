@@ -14,7 +14,7 @@ function FaqBlok({ items }: { items: { q: string; a: string }[] }) {
             <button onClick={() => setOpen(open === i ? null : i)}
               className="w-full flex justify-between items-center px-6 py-4 text-left hover:bg-slate-50 transition-colors">
               <span className="text-sm font-semibold text-[#1a1a1a] pr-4">{item.q}</span>
-              <span className="text-[#1066a3] font-bold text-lg shrink-0">{open === i ? "−" : "+"}</span>
+              <span className="text-brand-text font-bold text-lg shrink-0">{open === i ? "−" : "+"}</span>
             </button>
             {open === i && <div className="px-6 pb-5 text-sm text-slate-600 leading-relaxed bg-slate-50">{item.a}</div>}
           </div>
@@ -63,12 +63,12 @@ export default function BartMooiDeurenConfigurator() {
   return (
     <div className="max-w-[1200px] mx-auto p-4 md:p-12 lg:p-16 font-sans bg-white min-h-screen">
       {/* Header Section - Nu flexibel voor mobiel */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 border-l-4 border-[#1066a3] pl-4 md:pl-6">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 border-l-4 border-brand pl-4 md:pl-6">
         <div className="mb-6 lg:mb-0">
           <h1 className="text-2xl md:text-4xl font-bold text-[#1a1a1a] mb-1 md:mb-3 ">
             Kunststof deuren
           </h1>
-          <p className="text-[#1066a3] font-medium text-sm md:text-xl uppercase tracking-tighter">
+          <p className="text-brand-text font-medium text-sm md:text-xl uppercase tracking-tighter">
             Kies uw gewenste indeling{" "}
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function BartMooiDeurenConfigurator() {
                 onClick={() => setActiveType(type)}
                 className={`flex-1 lg:flex-none px-4 md:px-8 py-2.5 md:py-3 text-[11px] md:text-sm font-bold rounded-lg transition-colors ${
                   activeType === type
-                    ? "bg-[#1066a3] text-white shadow-md"
+                    ? "bg-brand text-white shadow-md"
                     : "text-[#666666]"
                 }`}>
                 {type}
@@ -105,7 +105,7 @@ export default function BartMooiDeurenConfigurator() {
               className="group flex flex-col h-full">
               <div className="relative bg-white border border-slate-100 rounded-2xl flex items-center justify-center p-6 md:p-8 shadow-sm group-hover:shadow-md transition-shadow overflow-hidden min-h-[220px]">
                 {item.best && (
-                  <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-[#1066a3] text-white text-[8px] md:text-[9px] font-black px-2 py-1 md:px-3 md:py-1.5 rounded-full tracking-widest z-10 uppercase">
+                  <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-brand text-white text-[8px] md:text-[9px] font-black px-2 py-1 md:px-3 md:py-1.5 rounded-full tracking-widest z-10 uppercase">
                     POPULAIR
                   </div>
                 )}
@@ -120,7 +120,7 @@ export default function BartMooiDeurenConfigurator() {
                 <h3 className="font-bold text-[#1a1a1a] text-sm md:text-base uppercase tracking-tight leading-tight">
                   {item.name}
                 </h3>
-                <div className="mt-1 md:mt-2 text-[10px] font-bold text-[#1066a3] uppercase tracking-widest lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                <div className="mt-1 md:mt-2 text-[10px] font-bold text-brand-text uppercase tracking-widest lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                   Stel nu samen →
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function BartMooiDeurenConfigurator() {
                 { icon: <Sparkles size={20} />, title: "Onderhoudsvrij Genieten", text: "Zeg vaarwel tegen schuurpapier en verfkwasten. Kunststof is ongevoelig voor vocht, rot niet en behoudt jarenlang zijn kleur. Een doekje erover is alles wat je nodig hebt." },
               ].map((b, i) => (
                 <div key={i} className="flex gap-4 bg-slate-50 rounded-xl p-5 border border-slate-100">
-                  <div className="text-[#1066a3] shrink-0 mt-0.5">{b.icon}</div>
+                  <div className="text-brand-text shrink-0 mt-0.5">{b.icon}</div>
                   <div>
                     <p className="font-semibold text-[#1a1a1a] text-sm mb-1">{b.title}</p>
                     <p className="text-slate-500 text-sm leading-relaxed">{b.text}</p>

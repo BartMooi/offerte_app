@@ -31,9 +31,15 @@ export function middleware(request: NextRequest) {
     return withPathname(NextResponse.next(), pathname);
   }
 
+  // Testpagina (nagemaakte bartmooi.nl hero) op korte url
+  if (pathname === "/test") {
+    url.pathname = "/test.html";
+    return NextResponse.rewrite(url);
+  }
+
   // 3. Alle overige routes → configurators
   url.pathname =
-    pathname === "/" ? "/configurators/kozijnen" : `/configurators${pathname}`;
+    pathname === "/" ? "/configurators" : `/configurators${pathname}`;
   return withPathname(NextResponse.rewrite(url), pathname);
 }
 

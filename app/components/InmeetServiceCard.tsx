@@ -13,15 +13,15 @@ export function InmeetServiceCard() {
           />
           <button
             onClick={(e) => e.preventDefault()}
-            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white border-2 border-[#1066a3] text-[#1066a3] flex items-center justify-center shadow-sm hover:bg-[#1066a3] hover:text-white transition-colors">
+            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white border-2 border-brand text-brand-text flex items-center justify-center shadow-sm hover:bg-brand hover:text-white transition-colors">
             <Info size={14} />
           </button>
         </div>
       </div>
-      <h3 className="mt-6 text-center font-bold text-[#1a1a1a] text-base group-hover:text-[#1066a3] transition-colors uppercase tracking-tight">
+      <h3 className="mt-6 text-center font-bold text-[#1a1a1a] text-base group-hover:text-brand-text transition-colors uppercase tracking-tight">
         Inmeet service
       </h3>
-      <div className="mt-2 text-center text-[10px] font-bold text-[#1066a3] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">
+      <div className="mt-2 text-center text-[10px] font-bold text-brand-text opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">
         Plan een afspraak →
       </div>
     </Link>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Overpass, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { CenterToast } from "./components/CenterToast";
 import { headers } from "next/headers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Huisstijl bartmooi.nl
+const overpass = Overpass({
+  variable: "--font-overpass",
   subsets: ["latin"],
 });
 
@@ -32,7 +33,7 @@ export default async function RootLayout({
   return (
     <html
       lang="nl"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      className={`${overpass.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {!isAdmin && <Navbar />}
 
