@@ -102,13 +102,14 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center justify-between">
-        <Link href="/" className="flex items-center h-full py-4 shrink-0">
+        {/* Logo gaat naar de hoofdsite */}
+        <a href="https://bartmooi.nl" className="flex items-center h-full py-4 shrink-0">
           <img
             src="/bartmooi-logo-1.png"
             alt="BartMooi Logo"
             className="h-full max-h-[40px] md:max-h-[60px] w-auto object-contain"
           />
-        </Link>
+        </a>
 
         {/* Desktop menu */}
         {isOfferte && (
@@ -137,6 +138,11 @@ const Navbar = () => {
       {isOfferte && (
         <div className={`md:hidden overflow-hidden transition-all bg-white border-t ${isOpen ? "max-h-screen" : "max-h-0"}`}>
           <div className="flex flex-col p-4 gap-1 font-bold text-[#2d3748] uppercase">
+            <a
+              href="https://bartmooi.nl"
+              className="py-3 mb-1 border-b border-gray-100 text-sm text-brand-text normal-case">
+              ← Terug naar bartmooi.nl
+            </a>
             {NAV_ITEMS.map((item) => (
               <div key={item.label}>
                 <button
