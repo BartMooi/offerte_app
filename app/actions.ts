@@ -2,7 +2,7 @@
 
 import { db } from "@/db";
 import { instellingen, offertes } from "@/db/schema";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { Resend } from "resend";
 import { desc, eq } from "drizzle-orm";
 import { cookies } from "next/headers";
@@ -67,6 +67,8 @@ export async function saveMatrix(key: string, data: any) {
       });
 
     revalidatePath("/admin/prijzen");
+    // Gecachte prijstabellen (lib/data.ts) direct laten verlopen
+    revalidateTag("matrix", { expire: 0 });
     return { success: true };
   } catch (error) {
     console.error("Fout bij opslaan matrix:", error);
