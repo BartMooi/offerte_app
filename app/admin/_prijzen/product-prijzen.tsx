@@ -15,6 +15,8 @@ export type MateriaalInstelling = {
   namen: Record<string, string>;
   /** Indeling van de types in groepen (bijvoorbeeld enkele en dubbele deuren); zonder groepen komen ze op één rij. */
   groepen?: { titel: string; slugs: string[] }[];
+  /** Kleine tekening per type, naast de naam in het prijsscherm. */
+  tekening?: (slug: string) => ReactNode;
   /** Het voorbeeld van de klantcalculator met de prijzen die in beeld staan. */
   voorbeeld: (model: StandaardModel) => ReactNode;
 };
@@ -34,9 +36,15 @@ export function ProductPrijzen({
   titel,
   typeTitel,
   materialen,
+  alleenZelf = false,
+  veldLabels,
 }: {
   titel: string;
   typeTitel: string;
+  /** Er zijn geen standaardprijzen: het bedrijf vult alles zelf in en ziet geen schuif. */
+  alleenZelf?: boolean;
+  /** Andere namen voor de vier prijsvelden per type. */
+  veldLabels?: React.ComponentProps<typeof StandaardEditor>["veldLabels"];
   materialen: Partial<Record<Materiaal, MateriaalInstelling>>;
 }) {
   const beschikbaar = (Object.keys(materialen) as Materiaal[]).filter((m) => materialen[m]);
@@ -56,7 +64,7 @@ export function ProductPrijzen({
       const nog: Partial<Record<Materiaal, boolean>> = {};
       const oudData: Partial<Record<Materiaal, unknown>> = {};
       beschikbaar.forEach((m, i) => {
-        nieuw[m] = isStandaardModel(data[i]) ? data[i] : nieuwStandaardModel();
+        nieuw[m] = isStandaardModel(data[i]) ? data[i] : alleenZelf ? leegModel(materialen[m]!.catalogus) : nieuwStandaardModel();
         nog[m] = !isStandaardModel(data[i]);
         if (!isStandaardModel(data[i]) && heeftGetallen(data[i])) oudData[m] = data[i];
       });
@@ -144,6 +152,7 @@ export function ProductPrijzen({
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,38rem)_minmax(0,1fr)] lg:items-start">
         <div className={`space-y-6 ${weergave === "voorbeeld" ? "hidden lg:block" : ""}`}>
+          {!alleenZelf && (
           <fieldset className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
             <legend className="sr-only">Hoe stel je je prijzen in?</legend>
             <p className="text-sm font-bold text-slate-800">Hoe stel je je prijzen in?</p>
@@ -164,6 +173,7 @@ export function ProductPrijzen({
               ))}
             </div>
           </fieldset>
+          )}
 
           {nogNietOpgeslagen[materiaal] && !zelf && (
             <div className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
@@ -184,6 +194,8 @@ export function ProductPrijzen({
             namen={inst.namen}
             typeTitel={typeTitel}
             groepen={inst.groepen ?? []}
+            tekening={inst.tekening}
+            veldLabels={veldLabels}
           />
         </div>
 

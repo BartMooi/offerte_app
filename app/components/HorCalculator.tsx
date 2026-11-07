@@ -5,6 +5,8 @@ import { HOR_BEGINMATEN, HOR_CATALOGUS, HOR_GRENZEN, HOR_INFO } from "@/lib/horr
 
 const NAMEN: Record<string, string> = { inzethor: "Inzethor", klemhor: "Klemhor", "plisse-hordeur": "Plissé hordeur" };
 
+export const horTekening = (slug: string) => (slug === "klemhor" ? <KlemhorSVG /> : slug === "plisse-hordeur" ? <PlisseHordeurSVG /> : <InzethorSVG />);
+
 /** De calculator van de klant voor een hor: inzethor, klemhor of plissé hordeur. */
 export function HorCalculator({ startSlug, matrix, voorbeeld }: { startSlug?: string; matrix?: unknown; voorbeeld?: boolean }) {
   return (
@@ -14,7 +16,7 @@ export function HorCalculator({ startSlug, matrix, voorbeeld }: { startSlug?: st
       beginmaten={HOR_BEGINMATEN}
       grenzen={HOR_GRENZEN}
       info={HOR_INFO}
-      tekening={(slug) => (slug === "klemhor" ? <KlemhorSVG /> : slug === "plisse-hordeur" ? <PlisseHordeurSVG /> : <InzethorSVG />)}
+      tekening={horTekening}
       matrixSleutel="horren_matrix"
       productNaam="Hor"
       typeTitel="Soort hor"

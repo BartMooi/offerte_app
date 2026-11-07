@@ -1,6 +1,6 @@
 "use client";
 import { ProductPrijzen } from "../_prijzen/product-prijzen";
-import { DeurCalculator, DEUR_NAMEN } from "@/app/components/DeurCalculator";
+import { DeurCalculator, DEUR_NAMEN, deurTekening } from "@/app/components/DeurCalculator";
 import { DEUR_KUNSTSTOF_CATALOGUS } from "@/lib/deuren-kunststof";
 import { DEUR_ALU_CATALOGUS } from "@/lib/deuren-alu";
 
@@ -25,6 +25,7 @@ export default function DeurenPrijzen() {
           catalogus: DEUR_KUNSTSTOF_CATALOGUS,
           namen: DEUR_NAMEN.kunststof,
           groepen: groepen(DEUR_KUNSTSTOF_CATALOGUS),
+          tekening: deurTekening,
           voorbeeld: (model) => <DeurCalculator materiaal="kunststof" voorbeeld matrix={model} />,
         },
         aluminium: {
@@ -32,6 +33,7 @@ export default function DeurenPrijzen() {
           catalogus: DEUR_ALU_CATALOGUS,
           namen: DEUR_NAMEN.aluminium,
           groepen: groepen(DEUR_ALU_CATALOGUS),
+          tekening: deurTekening,
           voorbeeld: (model) => <DeurCalculator materiaal="aluminium" voorbeeld matrix={model} />,
         },
       }}

@@ -1,6 +1,6 @@
 "use client";
 import { ProductPrijzen } from "../_prijzen/product-prijzen";
-import { HorCalculator, HOR_NAMEN } from "@/app/components/HorCalculator";
+import { HorCalculator, HOR_NAMEN, horTekening } from "@/app/components/HorCalculator";
 import { HOR_CATALOGUS } from "@/lib/horren";
 
 export default function HorPrijzen() {
@@ -13,6 +13,7 @@ export default function HorPrijzen() {
           sleutel: "horren_matrix",
           catalogus: HOR_CATALOGUS,
           namen: HOR_NAMEN,
+          tekening: horTekening,
           voorbeeld: (model) => <HorCalculator voorbeeld matrix={model} />,
         },
       }}

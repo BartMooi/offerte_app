@@ -5,7 +5,7 @@ import { saveMatrix } from "@/app/actions";
 import { getMatrix } from "@/lib/matrix";
 import { StandaardEditor } from "../_prijzen/standaard-editor";
 import { isStandaardModel, KOZIJN_CATALOGUS, leegModel, nieuwStandaardModel, type StandaardModel } from "@/lib/prijsmodel";
-import { KozijnConfigurator } from "@/app/components/KozijnConfigurator";
+import { KozijnConfigurator, kozijnTekening } from "@/app/components/KozijnConfigurator";
 import { ALU_CATALOGUS } from "@/lib/aluminium";
 
 type Materiaal = "kunststof" | "aluminium";
@@ -159,6 +159,7 @@ export default function KozijnenPrijzen() {
             model={huidig}
             onChange={zetModel}
             catalogus={CATALOGUS[materiaal]}
+            tekening={kozijnTekening}
           />
         </div>
 

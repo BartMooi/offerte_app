@@ -37,6 +37,8 @@ export function StandaardEditor({
   namen = KOZIJN_NAMEN,
   typeTitel = "Prijzen per kozijntype",
   groepen = KOZIJN_GROEPEN,
+  tekening,
+  veldLabels,
 }: {
   model: StandaardModel;
   onChange: (m: StandaardModel) => void;
@@ -46,6 +48,10 @@ export function StandaardEditor({
   typeTitel?: string;
   /** Indeling van de types in groepen; standaard die van kozijnen. Types die er niet in staan komen onderaan. */
   groepen?: { titel: string; slugs: string[] }[];
+  /** Een kleine tekening naast de naam van elk type, zodat te zien is om welk type het gaat. */
+  tekening?: (slug: string) => React.ReactNode;
+  /** Andere namen voor de vier prijsvelden per type, voor producten die niet per kozijn geprijsd worden. */
+  veldLabels?: Partial<Record<"basis" | "perMBreedte" | "perMHoogte" | "perM2", { label: string; kort: string }>>;
 }) {
   const [reset, setReset] = useState(0);
   // Hoeveel goedkoper (min) of duurder (plus) dan de standaardprijzen, in procenten.
@@ -164,7 +170,7 @@ export function StandaardEditor({
                   <th className="px-4 py-2">Kozijn</th>
                   {TYPE_VELDEN.map((v) => (
                     <th key={v.sleutel} className="px-2 py-2 text-right">
-                      {v.kort}
+                      {veldLabels?.[v.sleutel]?.kort ?? v.kort}
                     </th>
                   ))}
                 </tr>
@@ -176,8 +182,17 @@ export function StandaardEditor({
                   return (
                     <tr key={`${slug}-${reset}`}>
                       <td className="px-4 py-1.5 text-xs text-slate-800">
-                        {namen[slug] ?? slug}
-                        {eigen && !model.zelf && <span className="ml-1 text-[10px] font-semibold text-brand-text">aangepast</span>}
+                        <span className="flex min-w-[11.5rem] items-center gap-2.5">
+                          {tekening && (
+                            <span className="flex h-12 w-14 shrink-0 items-center justify-center rounded-md bg-slate-50 p-1 [&>svg]:h-full! [&>svg]:max-h-full! [&>svg]:w-auto! [&>svg]:max-w-full!">
+                              {tekening(slug)}
+                            </span>
+                          )}
+                          <span>
+                            {namen[slug] ?? slug}
+                            {eigen && !model.zelf && <span className="ml-1 text-[10px] font-semibold text-brand-text">aangepast</span>}
+                          </span>
+                        </span>
                       </td>
                       {TYPE_VELDEN.map((v) => (
                         <td key={v.sleutel} className="px-2 py-1.5">
@@ -185,7 +200,7 @@ export function StandaardEditor({
                             breedte="w-[7.5rem]"
                             standaard={model.zelf ? undefined : afronden(catalogus.typen[slug][v.sleutel])}
                             leeg={!model.zelf && v.sleutel === "basis" && afronden(catalogus.typen[slug].basis) === 0 ? "inbegrepen" : undefined}
-                            label={`${namen[slug] ?? slug}: ${v.label}`}
+                            label={`${namen[slug] ?? slug}: ${veldLabels?.[v.sleutel]?.label ?? v.label}`}
                             waarde={afronden(recept[v.sleutel])}
                             onChange={(n) => zetType(slug, v.sleutel, n)}
                           />

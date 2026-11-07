@@ -1,6 +1,6 @@
 "use client";
 import { ProductPrijzen } from "../_prijzen/product-prijzen";
-import { HarmonicaCalculator, HARMONICA_NAMEN } from "@/app/components/HarmonicaCalculator";
+import { HarmonicaCalculator, HARMONICA_NAMEN, harmonicaTekening } from "@/app/components/HarmonicaCalculator";
 import { HARMONICA_CATALOGUS } from "@/lib/harmonicadeuren";
 
 export default function HarmonicadeurPrijzen() {
@@ -13,6 +13,7 @@ export default function HarmonicadeurPrijzen() {
           sleutel: "alu_harmonicadeur_matrix",
           catalogus: HARMONICA_CATALOGUS,
           namen: HARMONICA_NAMEN,
+          tekening: harmonicaTekening,
           voorbeeld: (model) => <HarmonicaCalculator voorbeeld matrix={model} />,
         },
       }}

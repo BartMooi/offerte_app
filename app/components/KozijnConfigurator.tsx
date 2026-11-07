@@ -304,6 +304,12 @@ const KOZIJNEN = [
 
 const getKozijnData = (slug: string) => KOZIJNEN.find((k) => k.slug === slug) || null;
 
+/** De tekening van een kozijntype, voor het prijsscherm. */
+export function kozijnTekening(slug: string) {
+  const k = getKozijnData(slug);
+  return k ? <KozijnTekening kozijn={k} className="h-full max-w-full" /> : null;
+}
+
 function KozijnTekening({
   kozijn,
   className,

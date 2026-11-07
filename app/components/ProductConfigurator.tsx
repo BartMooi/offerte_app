@@ -133,7 +133,7 @@ export function ProductConfigurator({
   return (
     <div className={voorbeeld ? "w-full bg-white" : "w-full min-h-screen bg-white pb-24 lg:pb-0"}>
       <div className={voorbeeld ? "p-4" : "mx-auto max-w-[1200px] px-4 py-4 sm:px-6 md:py-10"}>
-        <h1 className="sr-only">
+        <h1 className={`font-black text-slate-800 ${voorbeeld ? "mb-2 text-base" : "mb-3 text-xl sm:text-2xl"}`}>
           {productNaam} · {namen[slug] ?? slug}
         </h1>
         {voorbeeld && (
@@ -152,14 +152,17 @@ export function ProductConfigurator({
             {slugs.length > 1 && (
               <div role="group" aria-label={typeTitel}>
                 <p className={stap}>1. {typeTitel}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="relative -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0 lg:flex-wrap lg:overflow-visible">
                   {slugs.map((s) => (
                     <button
                       key={s}
                       type="button"
                       aria-pressed={s === slug}
                       onClick={() => kiesType(s)}
-                      className={`${kaart(s === slug)} flex min-h-10 items-center px-4`}>
+                      className={`${kaart(s === slug)} w-24 shrink-0 p-1.5 text-center text-[11px] leading-tight sm:w-28`}>
+                      <span className="mb-1 flex h-10 items-center justify-center sm:h-14 [&>svg]:h-full! [&>svg]:max-h-full! [&>svg]:w-auto! [&>svg]:max-w-full! **:[vector-effect:non-scaling-stroke]">
+                        {tekening(s)}
+                      </span>
                       {namen[s] ?? s}
                     </button>
                   ))}

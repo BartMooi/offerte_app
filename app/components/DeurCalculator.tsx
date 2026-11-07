@@ -108,6 +108,16 @@ const ALU_VAN_KUNSTSTOF: Record<string, string> = {
   "dubbele-deur-met-zijlichten": "aluminium-dubbele-deur-met-zijlichten",
 };
 
+/** De tekening van een deur, voor de calculator en het prijsscherm. */
+export function deurTekening(slug: string) {
+  const [breed, deel] = TEKENING[slug] ?? [100, <SingleDoorBase key="a" type="voordeur" />];
+  return (
+    <svg viewBox={`0 0 ${breed} 160`} className="h-full max-w-full">
+      {deel}
+    </svg>
+  );
+}
+
 /** De calculator van de klant voor deuren, in kunststof of aluminium. */
 export function DeurCalculator({ materiaal, startSlug, matrix, voorbeeld }: { materiaal: "kunststof" | "aluminium"; startSlug?: string; matrix?: unknown; voorbeeld?: boolean }) {
   const alu = materiaal === "aluminium";
@@ -120,14 +130,7 @@ export function DeurCalculator({ materiaal, startSlug, matrix, voorbeeld }: { ma
       beginmaten={alu ? DEUR_ALU_BEGINMATEN : DEUR_KUNSTSTOF_BEGINMATEN}
       grenzen={alu ? DEUR_ALU_GRENZEN : DEUR_KUNSTSTOF_GRENZEN}
       info={alu ? DEUR_ALU_INFO : DEUR_KUNSTSTOF_INFO}
-      tekening={(slug) => {
-        const [breed, deel] = TEKENING[slug] ?? [100, <SingleDoorBase key="a" type="voordeur" />];
-        return (
-          <svg viewBox={`0 0 ${breed} 160`} className="h-full max-w-full">
-            {deel}
-          </svg>
-        );
-      }}
+      tekening={deurTekening}
       matrixSleutel={alu ? "alu_deur_matrix" : "deur_matrix"}
       productNaam={alu ? "Aluminium deur" : "Kunststof deur"}
       typeTitel="Soort deur"

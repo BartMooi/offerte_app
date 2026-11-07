@@ -14,6 +14,9 @@ import {
   PUI_KUNSTSTOF_NAMEN,
 } from "@/lib/schuifpui";
 
+const secties = (slug: string) => (slug.includes("4") ? 4 : 2);
+export const puiTekening = (slug: string) => <SlidingDoorDetailSVG sections={secties(slug)} />;
+
 /** De calculator van de klant voor een schuifpui, kunststof of aluminium. */
 export function SchuifpuiCalculator({
   materiaal,
@@ -27,7 +30,6 @@ export function SchuifpuiCalculator({
   voorbeeld?: boolean;
 }) {
   const alu = materiaal === "aluminium";
-  const secties = (slug: string) => (slug.includes("4") ? 4 : 2);
   return (
     <ProductConfigurator
       catalogus={alu ? PUI_ALU_CATALOGUS : PUI_KUNSTSTOF_CATALOGUS}
@@ -35,7 +37,7 @@ export function SchuifpuiCalculator({
       beginmaten={alu ? PUI_ALU_BEGINMATEN : PUI_KUNSTSTOF_BEGINMATEN}
       grenzen={alu ? PUI_ALU_GRENZEN : PUI_KUNSTSTOF_GRENZEN}
       info={alu ? PUI_ALU_INFO : PUI_KUNSTSTOF_INFO}
-      tekening={(slug) => <SlidingDoorDetailSVG sections={secties(slug)} />}
+      tekening={puiTekening}
       matrixSleutel={alu ? "alu_schuifpui_matrix" : "schuifpui_matrix"}
       productNaam={alu ? "Aluminium schuifpui" : "Kunststof schuifpui"}
       typeTitel="Verdeling"

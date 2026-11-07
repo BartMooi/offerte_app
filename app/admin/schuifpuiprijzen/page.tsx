@@ -1,6 +1,6 @@
 "use client";
 import { ProductPrijzen } from "../_prijzen/product-prijzen";
-import { SchuifpuiCalculator } from "@/app/components/SchuifpuiCalculator";
+import { SchuifpuiCalculator, puiTekening } from "@/app/components/SchuifpuiCalculator";
 import { PUI_ALU_CATALOGUS, PUI_ALU_NAMEN, PUI_KUNSTSTOF_CATALOGUS, PUI_KUNSTSTOF_NAMEN } from "@/lib/schuifpui";
 
 export default function SchuifpuiPrijzen() {
@@ -13,12 +13,14 @@ export default function SchuifpuiPrijzen() {
           sleutel: "schuifpui_matrix",
           catalogus: PUI_KUNSTSTOF_CATALOGUS,
           namen: PUI_KUNSTSTOF_NAMEN,
+          tekening: puiTekening,
           voorbeeld: (model) => <SchuifpuiCalculator materiaal="kunststof" voorbeeld matrix={model} />,
         },
         aluminium: {
           sleutel: "alu_schuifpui_matrix",
           catalogus: PUI_ALU_CATALOGUS,
           namen: PUI_ALU_NAMEN,
+          tekening: puiTekening,
           voorbeeld: (model) => <SchuifpuiCalculator materiaal="aluminium" voorbeeld matrix={model} />,
         },
       }}
