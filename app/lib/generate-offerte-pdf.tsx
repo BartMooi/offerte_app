@@ -362,9 +362,19 @@ function buildItemSpecs(specs: Record<string, string | number>): [string, string
     const v = specs[key];
     if (v !== undefined && v !== null && v !== "") out.push([label, clean(String(v)) || String(v)]);
   }
+  // Alle andere keuzes (schuifpui, horren, harmonicadeuren, aluminium, ...) staan er ook op, met hun eigen naam.
+  const bekend = new Set([...Object.keys(SPEC_LABELS), "breedte", "hoogte", "aantal", "binnenwerksBreedte", "binnenwerkseHoogte", "btwPercentage", "klantType"]);
+  for (const [key, v] of Object.entries(specs)) {
+    if (bekend.has(key) || v === undefined || v === null || v === "") continue;
+    const label = key.includes(" ") ? key : key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
+    out.push([label, clean(String(v)) || String(v)]);
+  }
   if (specs.aantal) out.push(["Aantal", `${specs.aantal} stuks`]);
   return out;
 }
+
+/** Particulieren zien de prijs inclusief btw, zakelijke klanten en oudere offertes exclusief. */
+const btwTekst = (specs: Record<string, string | number>) => (specs.klantType === "particulier" ? "incl. btw" : "excl. btw");
 
 export async function generateOffertePdf(_email: string, data: OfferteData): Promise<Buffer> {
   const logoPath = path.join(process.cwd(), "public", "bartmooi-logo-1.png");
@@ -479,7 +489,7 @@ export async function generateOffertePdf(_email: string, data: OfferteData): Pro
             <View style={styles.specRow}>
               <Text style={styles.specLabel}>Prijsindicatie</Text>
               <Text style={styles.specValueBold}>
-                € {p.item.prijs.toLocaleString("nl-NL", { minimumFractionDigits: 2 })} excl. btw
+                € {p.item.prijs.toLocaleString("nl-NL", { minimumFractionDigits: 2 })} {btwTekst(p.item.specs)}
               </Text>
             </View>
 
@@ -497,7 +507,8 @@ export async function generateOffertePdf(_email: string, data: OfferteData): Pro
           <View style={[styles.specRow, { marginTop: 6, borderBottomWidth: 0 }]}>
             <Text style={[styles.specLabel, { fontFamily: "Inter", fontWeight: 700, color: DARK }]}>Totaal</Text>
             <Text style={styles.specValueBold}>
-              € {(data.prijs ?? producten.reduce((s, p) => s + p.item.prijs, 0)).toLocaleString("nl-NL", { minimumFractionDigits: 2 })} excl. btw
+              € {(data.prijs ?? producten.reduce((s, p) => s + p.item.prijs, 0)).toLocaleString("nl-NL", { minimumFractionDigits: 2 })}{" "}
+              {producten.every((p) => p.item.specs.klantType === "particulier") ? "incl. btw" : "excl. btw"}
             </Text>
           </View>
         )}

@@ -1,0 +1,33 @@
+/** Maat (breedte, hoogte in mm) waarmee de calculator per kozijntype opent. */
+export const BEGINMATEN: Record<string, [number, number]> = {
+  "vast-kozijn": [1000, 1000],
+  "draai-kiep-kozijn": [1000, 1000],
+  "kiep-kozijn": [1000, 1000],
+  "vast-bovenlicht-kiep": [900, 1800],
+  "dk-bovenlicht-vast": [900, 1800],
+  "dk-bovenlicht-kiep": [900, 1800],
+  "dk-borstwering-vast": [900, 1800],
+  "draai-kiep-vast-kozijn": [1600, 1200],
+  "draai-kiep-draai-stolp-kozijn": [1600, 1200],
+  "vast-vast-kozijn": [1600, 1200],
+  "dk-dk-gelijk": [1600, 1200],
+  "kiep-vast-liggend": [1600, 1200],
+  "kiep-kiep-kozijn": [1600, 1000],
+  "dk-dk-stolp-bovenlicht-vast-2vaks": [1600, 1800],
+  "dk-vast-bovenlichten-vast-2vaks": [1600, 1800],
+  "dk-bovenlicht-kiep-vast-2vaks": [1600, 1800],
+  "vast-bovenlicht-kiep-vast-2vaks": [1600, 1800],
+  "dk-bovenlicht-vast-vast-2vaks": [1600, 1800],
+  "draai-kiep-vast-draai-kiep-kozijn": [2100, 1200],
+  "vast-vast-vast-kozijn": [1500, 1200],
+  "vast-draai-kiep-vast-kozijn": [2400, 1200],
+  "draai-kiep-vast-vast-kozijn": [2400, 1200],
+  "draai-kiep-draai-kiep-draai-kiep-kozijn": [1500, 1200],
+  "draai-kiep-vast-dk-bovenlichten-vast": [2400, 1800],
+  "vast-dk-vast-bovenlichten-vast": [2400, 1800],
+  "draai-kiep-vast-vast-draai-kiep-kozijn": [2400, 1200],
+  "draai-kiep-draai-kiep-draai-kiep-draai-kiep-kozijn": [2400, 1200],
+  "dk-13-vast-23": [2100, 1200],
+};
+
+export const beginmaat = (slug: string): [number, number] => BEGINMATEN[slug] ?? [1000, 1000];

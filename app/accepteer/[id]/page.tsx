@@ -143,7 +143,7 @@ export default function AccepteerOfferte() {
               <div className="flex px-5 py-3 text-sm bg-slate-50">
                 <span className="w-40 text-slate-400 flex-shrink-0">Prijsindicatie</span>
                 <span className="text-brand-text font-bold">
-                  € {offerte?.prijs?.toLocaleString("nl-NL", { minimumFractionDigits: 2 })} excl. btw
+                  € {offerte?.prijs?.toLocaleString("nl-NL", { minimumFractionDigits: 2 })} {Array.isArray(offerte?.items) && offerte.items.length > 0 && offerte.items.every((i: any) => i.specs?.klantType === "particulier") ? "incl. btw" : "excl. btw"}
                 </span>
               </div>
               {offerte?.subsidieIndicatie > 0 && (
