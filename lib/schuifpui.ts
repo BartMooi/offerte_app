@@ -19,7 +19,7 @@ export const PUI_KUNSTSTOF_KEUZES: KeuzeGroep[] = [
     titel: "Type profiel",
     keuzes: [
       { id: "evolutiondrive-plus-aanbevolen", naam: "EvolutionDrive Plus (Aanbevolen)", toeslag: {} },
-      { id: "evolutiondrive-creon", naam: "EvolutionDrive (Creon)", toeslag: { procent: -0.362, perM2: -17.91 } },
+      { id: "evolutiondrive-creon", naam: "EvolutionDrive", toeslag: { procent: -0.362, perM2: -17.91 } },
     ],
   },
   {

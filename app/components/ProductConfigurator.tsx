@@ -113,7 +113,7 @@ export function ProductConfigurator({
       specs: {
         breedte,
         hoogte,
-        ...Object.fromEntries(catalogus.keuzes.map((g) => [g.titel, keuzeNaam(g.id, keuzes[g.id], catalogus)])),
+        ...Object.fromEntries(catalogus.keuzes.filter((g) => !g.typen || g.typen.includes(slug)).map((g) => [g.titel, keuzeNaam(g.id, keuzes[g.id], catalogus)])),
         aantal,
         btw: metBtw ? `Prijs inclusief ${btwPct}% btw` : `Prijs exclusief btw (${btwPct}% btw komt erbij)`,
         btwPercentage: btwPct,
@@ -136,6 +136,12 @@ export function ProductConfigurator({
         <h1 className="sr-only">
           {productNaam} · {namen[slug] ?? slug}
         </h1>
+        {voorbeeld && (
+          <div className="sticky top-0 z-20 -mx-4 -mt-4 mb-3 border-b border-slate-100 bg-white/95 px-4 py-2 backdrop-blur">
+            <span className="text-[10px] text-slate-400 uppercase tracking-widest">Prijsindicatie · {metBtw ? "incl. btw" : "excl. btw"}</span>
+            <div className="text-2xl font-semibold tabular-nums text-slate-800">€ {prijsTekst}</div>
+          </div>
+        )}
         <div className={voorbeeld ? "grid grid-cols-1 gap-4" : "grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-12"}>
           <div className={voorbeeld ? "min-w-0 space-y-3" : "min-w-0 space-y-3 lg:col-span-7"}>
             <div className={`flex items-center justify-center overflow-hidden rounded-xl bg-slate-50 ${voorbeeld ? "h-48 p-3" : "h-40 p-3 sm:aspect-video sm:h-auto sm:p-5"}`}>
@@ -164,7 +170,7 @@ export function ProductConfigurator({
 
           <div className={voorbeeld ? "min-w-0" : "min-w-0 lg:col-span-5"}>
             <div className={voorbeeld ? "space-y-3" : "space-y-3 lg:rounded-xl lg:border lg:border-slate-200 lg:bg-white lg:p-6 lg:shadow-sm"}>
-              <div className={voorbeeld ? "block" : "hidden lg:block"}>
+              <div className="hidden lg:block">
                 <span className="text-[10px] tracking-widest text-slate-400 uppercase">Prijsindicatie · {metBtw ? "incl. btw" : "excl. btw"}</span>
                 <div className="text-3xl text-slate-800">€ {prijsTekst}</div>
               </div>
@@ -209,7 +215,7 @@ export function ProductConfigurator({
                 </FormField>
 
                 {SECTIES.map((sec) => {
-                  const groepen = catalogus.keuzes.filter((g) => sectieVan(g.id) === sec);
+                  const groepen = catalogus.keuzes.filter((g) => sectieVan(g.id) === sec && (!g.typen || g.typen.includes(slug)));
                   if (groepen.length === 0) return null;
                   return (
                     <FormField key={sec} label={sec} value={groepen.map((g) => keuzeNaam(g.id, keuzes[g.id], catalogus)).join(" · ")}>

@@ -718,6 +718,12 @@ export function KozijnConfigurator({
   return (
     <div className={voorbeeld ? "w-full bg-white" : "w-full min-h-screen bg-white pb-24 lg:pb-0"}>
       <div className={voorbeeld ? "p-4" : "max-w-[1200px] mx-auto px-4 sm:px-6 py-4 md:py-10"}>
+        {voorbeeld && (
+          <div className="sticky top-0 z-20 -mx-4 -mt-4 mb-3 border-b border-slate-100 bg-white/95 px-4 py-2 backdrop-blur">
+            <span className="text-[10px] text-slate-400 uppercase tracking-widest">Prijsindicatie{standaard ? (metBtw ? " · incl. btw" : " · excl. btw") : ""}</span>
+            <div className="text-2xl font-semibold tabular-nums text-slate-800">€ {prijsTekst}</div>
+          </div>
+        )}
         <h1 className={`font-black text-slate-800 ${voorbeeld ? "mb-2 text-base" : "mb-3 text-xl sm:text-2xl"}`}>
           {alu ? "Aluminium — " : ""}{kozijn.name}
         </h1>
@@ -773,7 +779,7 @@ export function KozijnConfigurator({
 
           <div className={voorbeeld ? "min-w-0" : "min-w-0 lg:col-span-5"}>
             <div className={voorbeeld ? "space-y-3" : "space-y-3 lg:bg-white lg:border lg:border-slate-200 lg:rounded-xl lg:p-6 lg:shadow-sm"}>
-              <div className={voorbeeld ? "block" : "hidden lg:block"}>
+              <div className="hidden lg:block">
                 <span className="text-[10px] text-slate-400 uppercase tracking-widest">Prijsindicatie{standaard ? (metBtw ? " · incl. btw" : " · excl. btw") : ""}</span>
                 <div className="text-3xl text-slate-800">€ {prijsTekst}</div>
               </div>

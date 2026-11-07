@@ -5,7 +5,8 @@ import type { Toeslag } from "./prijsmotor";
  * Een bedrijf kan elk bedrag aanpassen of een keuze uitzetten.
  */
 export type Keuze = { id: string; naam: string; toeslag: Toeslag };
-export type KeuzeGroep = { id: string; titel: string; keuzes: Keuze[] };
+/** `typen`: de typen (deuren, kozijnen) waarvoor deze keuze bestaat; zonder `typen` geldt hij voor alle typen. */
+export type KeuzeGroep = { id: string; titel: string; keuzes: Keuze[]; typen?: string[] };
 
 const FOLIE_BINNEN: Toeslag = { procent: 0.1, perM2: 6.32 };
 const FOLIE_BUITEN: Toeslag = { procent: 0.05, perM2: 3.16 };

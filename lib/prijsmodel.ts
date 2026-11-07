@@ -103,6 +103,7 @@ export function berekenStandaard(
   regels.push({ label: `Kozijn ${nl(breedteMm)} × ${nl(hoogteMm)} mm`, bedrag: kozijnBedrag });
   let materiaal = kozijnBedrag;
   for (const groep of cat.keuzes) {
+    if (groep.typen && !groep.typen.includes(slug)) continue;
     const id = gekozen[groep.id];
     if (!id) continue;
     // Bij een verdiept profiel is er geen T-profiel om weg te laten: de korting voor "zonder T-profiel" vervalt.

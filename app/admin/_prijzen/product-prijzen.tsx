@@ -13,6 +13,8 @@ export type MateriaalInstelling = {
   sleutel: string;
   catalogus: Catalogus;
   namen: Record<string, string>;
+  /** Indeling van de types in groepen (bijvoorbeeld enkele en dubbele deuren); zonder groepen komen ze op één rij. */
+  groepen?: { titel: string; slugs: string[] }[];
   /** Het voorbeeld van de klantcalculator met de prijzen die in beeld staan. */
   voorbeeld: (model: StandaardModel) => ReactNode;
 };
@@ -181,12 +183,12 @@ export function ProductPrijzen({
             catalogus={inst.catalogus}
             namen={inst.namen}
             typeTitel={typeTitel}
-            groepen={[]}
+            groepen={inst.groepen ?? []}
           />
         </div>
 
         <aside className={`lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto ${weergave === "prijzen" ? "hidden lg:block" : ""}`}>
-          <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
+          <div className="overflow-clip rounded-2xl border border-slate-100 bg-white shadow-sm">
             <div className="border-b border-slate-100 bg-slate-50 px-4 py-3">
               <h2 className="text-sm font-bold text-slate-800">Prijscheck</h2>
               <p className="mt-0.5 text-xs text-slate-500">

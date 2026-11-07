@@ -201,7 +201,7 @@ export function StandaardEditor({
       ))}
 
       {catalogus.keuzes.map((groep) => (
-        <Kaart key={groep.id} titel={groep.titel} uitleg="Wat deze keuze erbij kost. Laat een bedrag op € 0 als je er niets voor rekent.">
+        <Kaart key={groep.id} titel={groep.titel} uitleg={`Wat deze keuze erbij kost. Laat een bedrag op € 0 als je er niets voor rekent.${groep.typen ? ` Geldt alleen voor: ${groep.typen.map((s) => namen?.[s] ?? s).join(", ")}.` : ""}`}>
           {groep.keuzes.map((k) => {
             const t = keuzeToeslag(model, groep.id, k.id, catalogus);
             const velden = TOESLAG_VELDEN.filter((v) => t[v.sleutel] !== undefined);

@@ -163,7 +163,7 @@ export default function KozijnenPrijzen() {
         </div>
 
         <aside className={`lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto ${weergave === "prijzen" ? "hidden lg:block" : ""}`}>
-          <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
+          <div className="overflow-clip rounded-2xl border border-slate-100 bg-white shadow-sm">
             <div className="border-b border-slate-100 bg-slate-50 px-4 py-3">
               <h2 className="text-sm font-bold text-slate-800">Prijscheck</h2>
               <p className="mt-0.5 text-xs text-slate-500">
